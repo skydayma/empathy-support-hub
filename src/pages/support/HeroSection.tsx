@@ -1,3 +1,4 @@
+
 import { motion } from "framer-motion";
 import SmartSearch from "@/components/SmartSearch";
 import EventPopup from "./EventPopup";
@@ -11,9 +12,6 @@ const HeroSection = ({
 }) => (
   <section
     className="relative overflow-hidden py-16 lg:py-20 px-2 lg:px-0 min-h-[340px] flex flex-col justify-center bg-[linear-gradient(135deg,#b6eaff_0%,#e5deff_50%,#ffdee2_100%)]"
-    style={{
-      // background: "linear-gradient(135deg, #003296 0%, #06C286 100%)"
-    }}
   >
     <EventPopup />
     <div className="fixed top-20 right-5 z-50">
@@ -50,8 +48,8 @@ const HeroSection = ({
         transition={{ duration: 0.8, delay: 0.2 }}
       >
         <img
-          src="https://images.unsplash.com/photo-1487180144351-b8472da7d491?auto=format&fit=crop&w=520&q=80"
-          alt="AI illustration"
+          src={`https://images.unsplash.com/photo-${isDarkMode ? '1487087182419-5c8fede9b91a' : '1461749280684-dccba630e2f6'}`}
+          alt="Support illustration"
           className="h-52 w-full max-w-xs object-cover rounded-2xl shadow-xl border-4 border-white/80"
         />
       </motion.div>
