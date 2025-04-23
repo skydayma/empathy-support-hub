@@ -1,15 +1,9 @@
+
 import { useState } from "react";
 import Layout from "@/components/Layout";
 import LiveChatWidget from "@/components/LiveChatWidget";
 import HeroSection from "./support/HeroSection";
-import AnnouncementsCarouselPanel from "./support/AnnouncementsCarouselPanel";
-import SupportFormPanel from "./support/SupportFormPanel";
-import ContactOptionsPanel from "./support/ContactOptionsPanel";
-import CustomerDashboardPanel from "./support/CustomerDashboardPanel";
-import KnowledgeBasePanel from "./support/KnowledgeBasePanel";
-import PersonalizedHelpPanel from "./support/PersonalizedHelpPanel";
-import ContactSection from "./support/ContactSection";
-import FooterLinks from "./support/FooterLinks";
+import EventPopup from "./support/EventPopup";
 import MainContent from "./support/sections/MainContent";
 
 // Main Support Page split into smaller subfiles for maintainability.
@@ -24,6 +18,7 @@ const Support = () => {
 
   return (
     <Layout>
+      <EventPopup />
       <HeroSection isDarkMode={isDarkMode} toggleDarkMode={toggleDarkMode} />
       <LiveChatWidget />
       <MainContent showDashboard={showDashboard} setShowDashboard={setShowDashboard} />
