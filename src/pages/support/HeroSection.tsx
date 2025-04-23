@@ -1,4 +1,6 @@
+
 import SmartSearch from "@/components/SmartSearch";
+import { motion } from "framer-motion";
 
 const HeroSection = ({
   isDarkMode,
