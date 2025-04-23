@@ -1,6 +1,6 @@
-
 import { motion } from "framer-motion";
 import SmartSearch from "@/components/SmartSearch";
+import EventPopup from "./EventPopup";
 
 const HeroSection = ({
   isDarkMode,
@@ -10,11 +10,12 @@ const HeroSection = ({
   toggleDarkMode: () => void;
 }) => (
   <section
-    className="relative overflow-hidden py-16 lg:py-20 px-2 lg:px-0 min-h-[340px] flex flex-col justify-center"
+    className="relative overflow-hidden py-16 lg:py-20 px-2 lg:px-0 min-h-[340px] flex flex-col justify-center bg-[linear-gradient(135deg,#b6eaff_0%,#e5deff_50%,#ffdee2_100%)]"
     style={{
-      background: "linear-gradient(135deg, #003296 0%, #06C286 100%)"
+      // background: "linear-gradient(135deg, #003296 0%, #06C286 100%)"
     }}
   >
+    <EventPopup />
     <div className="fixed top-20 right-5 z-50">
       <button
         onClick={toggleDarkMode}
@@ -58,7 +59,8 @@ const HeroSection = ({
     <div
       className="absolute inset-0 pointer-events-none"
       style={{
-        background: "linear-gradient(180deg,rgba(0,0,0,0.02),rgba(0,80,200,0.13),rgba(6,194,134,0.10))"
+        background:
+          "linear-gradient(180deg,rgba(0,0,0,0.02),rgba(0,80,200,0.13),rgba(6,194,134,0.10))",
       }}
     />
   </section>
