@@ -1,7 +1,7 @@
 
 import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { MessageCircle, Mail, HelpCircle, CheckCircle } from "lucide-react";
+import { MessageSquare, Mail, HelpCircle, CheckCircle } from "lucide-react";
 import Layout from "@/components/Layout";
 import FormField from "@/components/FormField";
 import MotionButton from "@/components/MotionButton";
@@ -21,7 +21,7 @@ type FormValues = z.infer<typeof formSchema>;
 
 const Support = () => {
   const [isSubmitted, setIsSubmitted] = useState(false);
-  
+
   // Animation variants
   const containerVariants = {
     hidden: { opacity: 0 },
@@ -32,7 +32,7 @@ const Support = () => {
       }
     }
   };
-  
+
   const itemVariants = {
     hidden: { opacity: 0, y: 20 },
     visible: {
@@ -57,19 +57,19 @@ const Support = () => {
     {
       title: "Live Chat",
       description: "Talk to our team in real-time",
-      icon: <MessageCircle className="h-6 w-6" />,
+      icon: <MessageSquare className="h-6 w-6 text-primary" />,
       action: "Start Chat"
     },
     {
       title: "Email Support",
       description: "Send us a detailed message",
-      icon: <Mail className="h-6 w-6" />,
+      icon: <Mail className="h-6 w-6 text-secondary" />,
       action: "Email Us"
     },
     {
       title: "FAQs",
       description: "Find quick answers to common questions",
-      icon: <HelpCircle className="h-6 w-6" />,
+      icon: <HelpCircle className="h-6 w-6 text-primary" />,
       action: "View FAQs"
     }
   ];
@@ -99,10 +99,9 @@ const Support = () => {
   const onSubmit = async (data: FormValues) => {
     // Simulate API call
     await new Promise(resolve => setTimeout(resolve, 1000));
-    console.log("Form submitted:", data);
     setIsSubmitted(true);
     reset();
-    
+
     // Reset success message after 5 seconds
     setTimeout(() => {
       setIsSubmitted(false);
@@ -112,35 +111,62 @@ const Support = () => {
   return (
     <Layout>
       {/* Intro Section */}
-      <section className="bg-gradient-to-b from-purple-50 to-white py-16">
-        <div className="container mx-auto px-4">
-          <motion.div 
-            className="text-center max-w-4xl mx-auto"
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.5 }}
-          >
-            <h1 className="text-4xl md:text-5xl font-bold mb-4">We're Here to Help</h1>
-            <p className="text-lg md:text-xl text-muted-foreground mb-8">
-              Our expert support team is always ready to assist you with any questions or concerns you might have.
-            </p>
-          </motion.div>
-        </div>
-      </section>
-
-      <div className="container mx-auto px-4 py-12">
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
-          {/* Support Form Section */}
+      <section
+        className="relative overflow-hidden py-20 px-2 lg:px-0 min-h-[340px] flex flex-col justify-center"
+        style={{
+          background: "linear-gradient(90deg, #003296 0%, #06C286 100%)"
+        }}
+      >
+        <div className="container mx-auto grid md:grid-cols-2 gap-6 items-center relative z-10">
           <motion.div
             initial={{ opacity: 0, x: -20 }}
             animate={{ opacity: 1, x: 0 }}
-            transition={{ duration: 0.5, delay: 0.2 }}
-            className="bg-white rounded-xl shadow-lg p-8 border border-muted"
+            transition={{ duration: 0.6 }}
+            className="mb-12 md:mb-0"
           >
-            <h2 className="text-2xl font-semibold mb-6">Contact Support</h2>
+            <h1 className="text-4xl md:text-5xl font-bold mb-5 text-white drop-shadow-md">
+              We’re Here to Help
+            </h1>
+            <p className="text-lg text-white/90 mb-8">
+              Our friendly support team is always ready to assist you. Get answers, solutions, or just a bit of guidance — we’re just one message away!
+            </p>
+          </motion.div>
+          <motion.div
+            className="flex justify-center md:justify-end"
+            initial={{ opacity: 0, scale: 0.95 }}
+            animate={{ opacity: 1, scale: 1 }}
+            transition={{ duration: 0.8, delay: 0.2 }}
+          >
+            {/* Attractive abstract AI/ML illustration */}
+            <img
+              src="https://images.unsplash.com/photo-1487180144351-b8472da7d491?auto=format&fit=crop&w=520&q=80"
+              alt="AI illustration"
+              className="h-52 w-full max-w-xs object-cover rounded-2xl shadow-xl border-4 border-white/80"
+            />
+          </motion.div>
+        </div>
+        {/* Gradient shadow effect */}
+        <div
+          className="absolute inset-0 pointer-events-none"
+          style={{
+            background: "linear-gradient(180deg,rgba(0,0,0,0.02),rgba(0,80,200,0.13),rgba(6,194,134,0.10))"
+          }}
+        />
+      </section>
+
+      <div className="container mx-auto px-2 py-10 lg:py-16">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-10">
+          {/* Support Form Section */}
+          <motion.div
+            initial={{ opacity: 0, x: -24 }}
+            animate={{ opacity: 1, x: 0 }}
+            transition={{ duration: 0.6, delay: 0.12 }}
+            className="rounded-2xl shadow-xl bg-white/90 border border-gray-200 p-8 relative z-0 backdrop-blur-lg"
+          >
+            <h2 className="text-2xl font-bold mb-6 text-primary">Contact Support</h2>
             <AnimatePresence mode="wait">
               {isSubmitted ? (
-                <motion.div 
+                <motion.div
                   key="success"
                   initial={{ opacity: 0, scale: 0.8 }}
                   animate={{ opacity: 1, scale: 1 }}
@@ -148,16 +174,16 @@ const Support = () => {
                   className="bg-green-50 rounded-lg p-6 text-center"
                 >
                   <div className="flex justify-center mb-4">
-                    <CheckCircle className="h-16 w-16 text-green-500" />
+                    <CheckCircle className="h-16 w-16 text-secondary animate-pulse" />
                   </div>
                   <h3 className="text-xl font-medium text-green-800 mb-2">Message Sent Successfully</h3>
                   <p className="text-green-600">We'll get back to you as soon as possible.</p>
                 </motion.div>
               ) : (
-                <motion.form 
+                <motion.form
                   key="form"
                   onSubmit={handleSubmit(onSubmit)}
-                  className="space-y-5"
+                  className="space-y-6"
                   variants={containerVariants}
                   initial="hidden"
                   animate="visible"
@@ -172,7 +198,7 @@ const Support = () => {
                       error={errors.name?.message}
                     />
                   </motion.div>
-                  
+
                   <motion.div variants={itemVariants}>
                     <FormField
                       id="email"
@@ -183,7 +209,7 @@ const Support = () => {
                       error={errors.email?.message}
                     />
                   </motion.div>
-                  
+
                   <motion.div variants={itemVariants}>
                     <FormField
                       id="category"
@@ -202,7 +228,7 @@ const Support = () => {
                       <option value="other">Other</option>
                     </FormField>
                   </motion.div>
-                  
+
                   <motion.div variants={itemVariants}>
                     <FormField
                       id="message"
@@ -213,7 +239,7 @@ const Support = () => {
                       error={errors.message?.message}
                     />
                   </motion.div>
-                  
+
                   <motion.div variants={itemVariants}>
                     <MotionButton
                       type="submit"
@@ -221,7 +247,7 @@ const Support = () => {
                       isLoading={isSubmitting}
                       variant="primary"
                       size="lg"
-                      className="w-full"
+                      className="w-full bg-primary text-white hover:bg-secondary hover:text-primary transition-all"
                     >
                       Submit Support Request
                     </MotionButton>
@@ -231,39 +257,40 @@ const Support = () => {
             </AnimatePresence>
           </motion.div>
 
-          {/* Contact Options */}
-          <div className="space-y-8">
+          {/* Contact Options & Recent Tickets */}
+          <div className="space-y-8 flex flex-col justify-between">
             <motion.div
-              initial={{ opacity: 0, y: 20 }}
+              initial={{ opacity: 0, y: 24 }}
               animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.5, delay: 0.4 }}
+              transition={{ duration: 0.5, delay: 0.17 }}
             >
-              <h2 className="text-2xl font-semibold mb-6">Contact Options</h2>
+              <h2 className="text-2xl font-bold mb-5 text-primary">
+                Contact Options
+              </h2>
               <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
                 {contactOptions.map((option, index) => (
                   <motion.div
                     key={option.title}
-                    className="bg-white p-6 rounded-lg shadow-md border border-muted hover:border-primary/20 hover:shadow-lg transition-all"
-                    whileHover={{ 
-                      y: -5,
-                      transition: { duration: 0.2 }
+                    className="bg-gradient-to-br from-white via-blue-50 to-green-50 p-6 rounded-xl shadow-md border hover:shadow-xl transition-all group border-gray-100 hover:border-primary/40 cursor-pointer"
+                    whileHover={{
+                      y: -6,
+                      scale: 1.04,
+                      boxShadow: "0 8px 32px rgba(0,50,150,0.15)"
                     }}
-                    initial={{ opacity: 0, y: 20 }}
-                    animate={{ 
+                    initial={{ opacity: 0, y: 30 }}
+                    animate={{
                       opacity: 1,
                       y: 0,
-                      transition: { delay: 0.2 + (index * 0.1), duration: 0.5 }
+                      transition: { delay: 0.15 + index * 0.1, duration: 0.4 }
                     }}
                   >
-                    <div className="flex flex-col items-center text-center">
-                      <div className="p-3 rounded-full bg-primary/10 mb-4">
-                        <div className="text-primary">
-                          {option.icon}
-                        </div>
+                    <div className="flex flex-col items-center text-center gap-2">
+                      <div className="p-3 mb-3 rounded-full bg-primary/10 ring-2 ring-secondary">
+                        <div>{option.icon}</div>
                       </div>
-                      <h3 className="font-medium mb-2">{option.title}</h3>
-                      <p className="text-muted-foreground text-sm mb-4">{option.description}</p>
-                      <button className="text-primary hover:text-primary/80 font-medium text-sm">
+                      <h3 className="font-bold mb-1 text-primary">{option.title}</h3>
+                      <p className="text-muted-foreground text-xs mb-4">{option.description}</p>
+                      <button className="text-secondary underline underline-offset-2 hover:text-primary transition text-sm font-medium">
                         {option.action}
                       </button>
                     </div>
@@ -274,28 +301,28 @@ const Support = () => {
 
             {/* Recent Tickets Section */}
             <motion.div
-              initial={{ opacity: 0, y: 20 }}
+              initial={{ opacity: 0, y: 24 }}
               animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.5, delay: 0.6 }}
-              className="bg-white rounded-xl shadow-lg p-8 border border-muted"
+              transition={{ duration: 0.5, delay: 0.33 }}
+              className="bg-white border border-gray-100 rounded-2xl shadow-lg p-8 transition-all hover:shadow-2xl"
             >
-              <h2 className="text-xl font-semibold mb-4">Recent Support Tickets</h2>
+              <h2 className="text-xl font-bold mb-4 text-primary">Recent Support Tickets</h2>
               <div className="space-y-3">
                 {recentTickets.map((ticket, index) => (
                   <motion.div
                     key={ticket.id}
-                    className="p-4 border border-muted rounded-lg hover:bg-muted/20 transition-colors group cursor-pointer"
-                    initial={{ opacity: 0, y: 10 }}
-                    animate={{ 
-                      opacity: 1, 
+                    className="p-4 border border-gray-100 rounded-lg hover:bg-accent/30 transition-colors group cursor-pointer"
+                    initial={{ opacity: 0, y: 8 }}
+                    animate={{
+                      opacity: 1,
                       y: 0,
-                      transition: { delay: 0.7 + (index * 0.1), duration: 0.3 } 
+                      transition: { delay: 0.39 + (index * 0.08), duration: 0.25 }
                     }}
                   >
                     <div className="flex justify-between items-center">
                       <div>
-                        <div className="flex items-center">
-                          <span className="text-sm font-medium text-muted-foreground mr-2">
+                        <div className="flex items-center gap-2">
+                          <span className="text-sm font-medium text-muted-foreground">
                             {ticket.id}
                           </span>
                           <h4 className="font-medium group-hover:text-primary transition-colors">
@@ -304,10 +331,10 @@ const Support = () => {
                         </div>
                         <span className="text-xs text-muted-foreground">{ticket.date}</span>
                       </div>
-                      <span className={`px-2 py-1 rounded-full text-xs font-medium
-                        ${ticket.status === 'Resolved' ? 'bg-green-100 text-green-800' : ''}
-                        ${ticket.status === 'In Progress' ? 'bg-blue-100 text-blue-800' : ''}
-                        ${ticket.status === 'Pending' ? 'bg-yellow-100 text-yellow-800' : ''}
+                      <span className={`px-2 py-1 rounded-full text-xs font-semibold
+                        ${ticket.status === 'Resolved' ? 'bg-green-100 text-secondary' : ''}
+                        ${ticket.status === 'In Progress' ? 'bg-blue-100 text-primary' : ''}
+                        ${ticket.status === 'Pending' ? 'bg-yellow-100 text-yellow-700' : ''}
                       `}>
                         {ticket.status}
                       </span>
