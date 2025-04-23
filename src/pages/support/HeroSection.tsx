@@ -11,6 +11,7 @@ const HeroSection = ({
 }) => (
   <section
     className="relative overflow-hidden py-16 lg:py-20 px-2 lg:px-0 min-h-[340px] flex flex-col justify-center bg-[linear-gradient(135deg,#b6eaff_0%,#e5deff_50%,#ffdee2_100%)]"
+    style={{ zIndex: 0 }} // Explicitly set lower z-index for the hero section
   >
     <div className="fixed top-20 right-5 z-50">
       <button
