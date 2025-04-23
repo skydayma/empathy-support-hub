@@ -1,4 +1,3 @@
-
 import { useState } from "react";
 import Layout from "@/components/Layout";
 import LiveChatWidget from "@/components/LiveChatWidget";
@@ -11,8 +10,9 @@ import KnowledgeBasePanel from "./support/KnowledgeBasePanel";
 import PersonalizedHelpPanel from "./support/PersonalizedHelpPanel";
 import ContactSection from "./support/ContactSection";
 import FooterLinks from "./support/FooterLinks";
+import MainContent from "./support/sections/MainContent";
 
-// Maintain state here for dashboard toggle and dark mode
+// Main Support Page split into smaller subfiles for maintainability.
 const Support = () => {
   const [isDarkMode, setIsDarkMode] = useState(false);
   const [showDashboard, setShowDashboard] = useState(false);
@@ -26,23 +26,7 @@ const Support = () => {
     <Layout>
       <HeroSection isDarkMode={isDarkMode} toggleDarkMode={toggleDarkMode} />
       <LiveChatWidget />
-      <AnnouncementsCarouselPanel />
-      <div className="container mx-auto px-2 py-10 lg:py-16">
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-10">
-          {showDashboard ? (
-            <CustomerDashboardPanel setShowDashboard={setShowDashboard} />
-          ) : (
-            <SupportFormPanel showDashboard={showDashboard} setShowDashboard={setShowDashboard} />
-          )}
-          <div className="space-y-8 flex flex-col justify-between">
-            <ContactOptionsPanel />
-            <KnowledgeBasePanel />
-            <PersonalizedHelpPanel />
-          </div>
-        </div>
-      </div>
-      <ContactSection />
-      <FooterLinks />
+      <MainContent showDashboard={showDashboard} setShowDashboard={setShowDashboard} />
     </Layout>
   );
 };
