@@ -199,57 +199,6 @@ const Index = () => {
         </div>
       </section>
 
-      <section className="bg-gradient-to-r from-white via-blue-50 to-purple-50 py-12 md:py-16">
-        <div className="container mx-auto px-4 max-w-2xl">
-          <motion.div
-            className="text-center mb-8"
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.5 }}
-          >
-            <Heart className="mx-auto h-8 w-8 text-pink-400 mb-2 animate-pulse" />
-            <h2 className="text-2xl md:text-3xl font-bold mb-2">Loved by our users</h2>
-            <p className="text-muted-foreground">
-              Real stories from people building with NexusSupport.
-            </p>
-          </motion.div>
-          <div className="relative flex items-center">
-            <button
-              onClick={prevTestimonial}
-              className="absolute left-0 z-10 p-2 bg-white rounded-full shadow hover:bg-primary hover:text-white transition-all"
-              aria-label="Previous testimonial"
-            >
-              <ArrowRight className="rotate-180 w-5 h-5" />
-            </button>
-            <motion.div
-              key={testimonialIdx}
-              initial={{ opacity: 0, x: 30 }}
-              animate={{ opacity: 1, x: 0 }}
-              exit={{ opacity: 0, x: -30 }}
-              transition={{ duration: 0.43 }}
-              className="mx-auto px-4 py-8 bg-white rounded-xl shadow-lg border border-gray-200 w-full"
-              style={{ minHeight: 160 }}
-            >
-              <p className="md:text-lg font-medium text-gray-700 mb-4">
-                “{testimonials[testimonialIdx].quote}”
-              </p>
-              <div>
-                <span className="font-bold text-primary">{testimonials[testimonialIdx].name}</span>
-                <span className="ml-1 text-sm text-gray-500">· {testimonials[testimonialIdx].title}</span>
-              </div>
-            </motion.div>
-            <button
-              onClick={nextTestimonial}
-              className="absolute right-0 z-10 p-2 bg-white rounded-full shadow hover:bg-primary hover:text-white transition-all"
-              aria-label="Next testimonial"
-            >
-              <ArrowRight className="w-5 h-5" />
-            </button>
-          </div>
-        </div>
-      </section>
-
       <section className="py-16 bg-white">
         <div className="container mx-auto px-4">
           <motion.div
@@ -305,6 +254,57 @@ const Index = () => {
               </motion.div>
             ))}
           </motion.div>
+        </div>
+      </section>
+
+      <section className="bg-gradient-to-r from-white via-blue-50 to-purple-50 py-12 md:py-16">
+        <div className="container mx-auto px-4 max-w-2xl">
+          <motion.div
+            className="text-center mb-8"
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.5 }}
+          >
+            <Heart className="mx-auto h-8 w-8 text-pink-400 mb-2 animate-pulse" />
+            <h2 className="text-2xl md:text-3xl font-bold mb-2">Loved by our users</h2>
+            <p className="text-muted-foreground">
+              Real stories from people building with NexusSupport.
+            </p>
+          </motion.div>
+          <div className="relative flex items-center">
+            <button
+              onClick={prevTestimonial}
+              className="absolute left-0 z-10 p-2 bg-white rounded-full shadow hover:bg-primary hover:text-white transition-all"
+              aria-label="Previous testimonial"
+            >
+              <ArrowRight className="rotate-180 w-5 h-5" />
+            </button>
+            <motion.div
+              key={testimonialIdx}
+              initial={{ opacity: 0, x: 30 }}
+              animate={{ opacity: 1, x: 0 }}
+              exit={{ opacity: 0, x: -30 }}
+              transition={{ duration: 0.43 }}
+              className="mx-auto px-4 py-8 bg-white rounded-xl shadow-lg border border-gray-200 w-full"
+              style={{ minHeight: 160 }}
+            >
+              <p className="md:text-lg font-medium text-gray-700 mb-4">
+                “{testimonials[testimonialIdx].quote}”
+              </p>
+              <div>
+                <span className="font-bold text-primary">{testimonials[testimonialIdx].name}</span>
+                <span className="ml-1 text-sm text-gray-500">· {testimonials[testimonialIdx].title}</span>
+              </div>
+            </motion.div>
+            <button
+              onClick={nextTestimonial}
+              className="absolute right-0 z-10 p-2 bg-white rounded-full shadow hover:bg-primary hover:text-white transition-all"
+              aria-label="Next testimonial"
+            >
+              <ArrowRight className="w-5 h-5" />
+            </button>
+          </div>
         </div>
       </section>
 
