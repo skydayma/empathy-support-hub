@@ -1,4 +1,3 @@
-
 import { motion } from "framer-motion";
 import {
   ArrowRight,
@@ -10,13 +9,17 @@ import {
   Star,
   CheckCircle,
   Heart,
-  Award
+  Award,
+  Twitter,
+  Github,
+  Linkedin,
+  Youtube
 } from "lucide-react";
 import { Link } from "react-router-dom";
 import Layout from "@/components/Layout";
 import { useState } from "react";
+import EventPopup from "./support/EventPopup";
 
-// Dummy testimonials (would normally fetch from backend)
 const testimonials = [
   {
     quote: "NexusSupport resolved my issue in under 2 minutes—amazing experience!",
@@ -36,7 +39,6 @@ const testimonials = [
 ];
 
 const Index = () => {
-  // Animation variants
   const containerVariants = {
     hidden: { opacity: 0 },
     visible: {
@@ -56,7 +58,6 @@ const Index = () => {
     }
   };
 
-  // Testimonial carousel state
   const [testimonialIdx, setTestimonialIdx] = useState(0);
   const nextTestimonial = () =>
     setTestimonialIdx((idx) => (idx + 1) % testimonials.length);
@@ -65,7 +66,6 @@ const Index = () => {
       idx === 0 ? testimonials.length - 1 : idx - 1
     );
 
-  // Products list as before
   const products = [
     {
       title: "AI-Powered Support",
@@ -93,7 +93,6 @@ const Index = () => {
     }
   ];
 
-  // Social proof/stats
   const stats = [
     {
       label: "Customers Helped",
@@ -119,9 +118,8 @@ const Index = () => {
 
   return (
     <Layout>
-      {/* Hero Section */}
+      <EventPopup />
       <section className="relative bg-gradient-to-br from-blue-50 via-white to-indigo-100 overflow-hidden">
-        {/* Badge for "Meet the new NexusSupport" */}
         <div className="absolute left-1/2 -translate-x-1/2 top-8">
           <span className="bg-gradient-to-r from-primary to-secondary text-white px-5 py-2 rounded-full shadow-lg font-semibold text-sm tracking-wide animate-pulse-slow">
             🎉 Meet the new NexusSupport!
@@ -173,7 +171,6 @@ const Index = () => {
           >
             <div className="relative flex justify-center">
               <div className="absolute -inset-1 rounded-xl bg-gradient-to-r from-primary via-accent to-secondary blur-xl opacity-30 animate-pulse-slow"></div>
-              {/* Changed image to beautiful customer support team */}
               <img 
                 src="https://images.unsplash.com/photo-1531297484001-80022131f5a1?auto=format&fit=crop&w=800&q=80"
                 alt="Customer Service Support Team"
@@ -182,7 +179,6 @@ const Index = () => {
             </div>
           </motion.div>
         </div>
-        {/* Trust/social stats below hero */}
         <div className="container mx-auto px-4 pb-10">
           <div className="mt-2 flex flex-wrap justify-center gap-6 md:gap-12">
             {stats.map((stat, i) => (
@@ -203,7 +199,6 @@ const Index = () => {
         </div>
       </section>
 
-      {/* Testimonials Carousel */}
       <section className="bg-gradient-to-r from-white via-blue-50 to-purple-50 py-12 md:py-16">
         <div className="container mx-auto px-4 max-w-2xl">
           <motion.div
@@ -220,7 +215,6 @@ const Index = () => {
             </p>
           </motion.div>
           <div className="relative flex items-center">
-            {/* Prev btn */}
             <button
               onClick={prevTestimonial}
               className="absolute left-0 z-10 p-2 bg-white rounded-full shadow hover:bg-primary hover:text-white transition-all"
@@ -228,7 +222,6 @@ const Index = () => {
             >
               <ArrowRight className="rotate-180 w-5 h-5" />
             </button>
-            {/* Main testimonial */}
             <motion.div
               key={testimonialIdx}
               initial={{ opacity: 0, x: 30 }}
@@ -246,7 +239,6 @@ const Index = () => {
                 <span className="ml-1 text-sm text-gray-500">· {testimonials[testimonialIdx].title}</span>
               </div>
             </motion.div>
-            {/* Next btn */}
             <button
               onClick={nextTestimonial}
               className="absolute right-0 z-10 p-2 bg-white rounded-full shadow hover:bg-primary hover:text-white transition-all"
@@ -258,7 +250,6 @@ const Index = () => {
         </div>
       </section>
 
-      {/* Products Section (Features) */}
       <section className="py-16 bg-white">
         <div className="container mx-auto px-4">
           <motion.div
@@ -316,6 +307,69 @@ const Index = () => {
           </motion.div>
         </div>
       </section>
+
+      <footer className="bg-gradient-to-r from-gray-50 via-gray-100 to-gray-50 dark:from-gray-900 dark:via-gray-800 dark:to-gray-900 border-t border-gray-200">
+        <div className="container mx-auto px-4 py-12">
+          <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
+            <div className="space-y-4">
+              <h3 className="text-lg font-semibold text-primary">About Us</h3>
+              <p className="text-muted-foreground">
+                NexusSupport helps businesses deliver exceptional customer support with AI-powered solutions.
+              </p>
+              <div className="flex space-x-4">
+                <a href="#" className="text-muted-foreground hover:text-primary transition-colors">
+                  <Twitter className="h-5 w-5" />
+                </a>
+                <a href="#" className="text-muted-foreground hover:text-primary transition-colors">
+                  <Github className="h-5 w-5" />
+                </a>
+                <a href="#" className="text-muted-foreground hover:text-primary transition-colors">
+                  <Linkedin className="h-5 w-5" />
+                </a>
+                <a href="#" className="text-muted-foreground hover:text-primary transition-colors">
+                  <Youtube className="h-5 w-5" />
+                </a>
+              </div>
+            </div>
+
+            <div>
+              <h3 className="text-lg font-semibold text-primary mb-4">Products</h3>
+              <ul className="space-y-2">
+                <li><a href="#" className="text-muted-foreground hover:text-primary transition-colors">Live Chat</a></li>
+                <li><a href="#" className="text-muted-foreground hover:text-primary transition-colors">Knowledge Base</a></li>
+                <li><a href="#" className="text-muted-foreground hover:text-primary transition-colors">Help Desk</a></li>
+                <li><a href="#" className="text-muted-foreground hover:text-primary transition-colors">API</a></li>
+              </ul>
+            </div>
+
+            <div>
+              <h3 className="text-lg font-semibold text-primary mb-4">Resources</h3>
+              <ul className="space-y-2">
+                <li><a href="#" className="text-muted-foreground hover:text-primary transition-colors">Documentation</a></li>
+                <li><a href="#" className="text-muted-foreground hover:text-primary transition-colors">Tutorials</a></li>
+                <li><a href="#" className="text-muted-foreground hover:text-primary transition-colors">Blog</a></li>
+                <li><a href="#" className="text-muted-foreground hover:text-primary transition-colors">Community</a></li>
+              </ul>
+            </div>
+
+            <div>
+              <h3 className="text-lg font-semibold text-primary mb-4">Legal</h3>
+              <ul className="space-y-2">
+                <li><a href="#" className="text-muted-foreground hover:text-primary transition-colors">Privacy Policy</a></li>
+                <li><a href="#" className="text-muted-foreground hover:text-primary transition-colors">Terms of Service</a></li>
+                <li><a href="#" className="text-muted-foreground hover:text-primary transition-colors">Cookie Policy</a></li>
+                <li><a href="#" className="text-muted-foreground hover:text-primary transition-colors">GDPR</a></li>
+              </ul>
+            </div>
+          </div>
+
+          <div className="mt-12 pt-8 border-t border-gray-200">
+            <p className="text-center text-muted-foreground">
+              © {new Date().getFullYear()} NexusSupport. All rights reserved.
+            </p>
+          </div>
+        </div>
+      </footer>
     </Layout>
   );
 };
