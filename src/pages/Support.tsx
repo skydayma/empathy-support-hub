@@ -3,7 +3,6 @@ import { useState } from "react";
 import Layout from "@/components/Layout";
 import LiveChatWidget from "@/components/LiveChatWidget";
 import HeroSection from "./support/HeroSection";
-import EventPopup from "./support/EventPopup";
 import MainContent from "./support/sections/MainContent";
 
 // Main Support Page split into smaller subfiles for maintainability.
@@ -18,7 +17,6 @@ const Support = () => {
 
   return (
     <Layout>
-      <EventPopup />
       <HeroSection isDarkMode={isDarkMode} toggleDarkMode={toggleDarkMode} />
       <LiveChatWidget />
       <MainContent showDashboard={showDashboard} setShowDashboard={setShowDashboard} />
