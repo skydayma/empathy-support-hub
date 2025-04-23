@@ -1,4 +1,3 @@
-
 import SmartSearch from "@/components/SmartSearch";
 import { motion } from "framer-motion";
 import { CircleHelpIcon, SparklesIcon } from "lucide-react";
@@ -11,7 +10,7 @@ const HeroSection = ({
   toggleDarkMode: () => void;
 }) => (
   <section
-    className="relative overflow-hidden py-24 lg:py-32 px-4 lg:px-0 min-h-[440px] flex flex-col justify-center"
+    className="relative overflow-hidden py-12 lg:py-16 px-4 lg:px-0 min-h-[320px] flex flex-col justify-center"
     style={{
       background: "linear-gradient(135deg, #b6eaff 0%, #e5deff 50%, #ffdee2 100%)",
       zIndex: 0,
@@ -37,7 +36,7 @@ const HeroSection = ({
       className="absolute inset-0 bg-gradient-to-b from-transparent via-white/5 to-white/10 pointer-events-none"
     />
 
-    <div className="container mx-auto grid md:grid-cols-2 gap-8 lg:gap-12 items-center relative z-10">
+    <div className="container mx-auto grid md:grid-cols-2 gap-6 lg:gap-8 items-center relative z-10">
       <motion.div
         initial={{ opacity: 0, x: -20 }}
         animate={{ opacity: 1, x: 0 }}
@@ -102,4 +101,3 @@ const HeroSection = ({
 );
 
 export default HeroSection;
-
