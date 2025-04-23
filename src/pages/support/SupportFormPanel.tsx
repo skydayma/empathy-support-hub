@@ -62,7 +62,7 @@ const SupportFormPanel = ({
       initial={{ opacity: 0, x: -24 }}
       animate={{ opacity: 1, x: 0 }}
       transition={{ duration: 0.6, delay: 0.12 }}
-      className="rounded-2xl shadow-xl bg-white/90 dark:bg-gray-800 border border-gray-200 dark:border-gray-700 p-8 relative z-0 backdrop-blur-lg"
+      className="rounded-2xl shadow-xl bg-white/90 dark:bg-gray-800 border border-gray-200 dark:border-gray-700 p-8 relative z-0 backdrop-blur-lg h-full flex flex-col"
     >
       <div className="flex justify-between items-center mb-6">
         <h2 className="text-2xl font-bold text-primary dark:text-white">Contact Support</h2>
@@ -81,7 +81,7 @@ const SupportFormPanel = ({
             initial={{ opacity: 0, scale: 0.8 }}
             animate={{ opacity: 1, scale: 1 }}
             exit={{ opacity: 0, scale: 0.8 }}
-            className="bg-green-50 dark:bg-green-900/30 rounded-lg p-6 text-center"
+            className="bg-green-50 dark:bg-green-900/30 rounded-lg p-6 text-center flex-grow flex flex-col justify-center"
           >
             <div className="flex justify-center mb-4">
               <CheckCircle className="h-16 w-16 text-secondary animate-pulse" />
@@ -93,12 +93,12 @@ const SupportFormPanel = ({
           <motion.form
             key="form"
             onSubmit={handleSubmit(onSubmit)}
-            className="space-y-6"
+            className="space-y-5 flex-grow flex flex-col"
             variants={containerVariants}
             initial="hidden"
             animate="visible"
           >
-            <motion.div variants={itemVariants} className="grid grid-cols-1 md:grid-cols-2 gap-6">
+            <motion.div variants={itemVariants} className="grid grid-cols-1 md:grid-cols-2 gap-5">
               <FormField
                 id="name"
                 label="Name"
@@ -116,7 +116,7 @@ const SupportFormPanel = ({
                 error={errors.email?.message}
               />
             </motion.div>
-            <motion.div variants={itemVariants} className="grid grid-cols-1 md:grid-cols-2 gap-6">
+            <motion.div variants={itemVariants} className="grid grid-cols-1 md:grid-cols-2 gap-5">
               <FormField
                 id="category"
                 label="Issue Category"
@@ -156,7 +156,7 @@ const SupportFormPanel = ({
               />
             </motion.div>
             <motion.div variants={itemVariants}>
-              <div className="flex items-center justify-between mb-4 p-4 border border-dashed border-gray-300 dark:border-gray-600 rounded-lg">
+              <div className="flex items-center justify-between p-4 border border-dashed border-gray-300 dark:border-gray-600 rounded-lg">
                 <div className="flex items-center gap-2">
                   <FileUp className="h-5 w-5 text-primary" />
                   <span className="text-sm text-muted-foreground">Attach files (optional)</span>
@@ -166,7 +166,7 @@ const SupportFormPanel = ({
                 </button>
               </div>
             </motion.div>
-            <motion.div variants={itemVariants}>
+            <motion.div variants={itemVariants} className="mt-auto pt-4">
               <MotionButton
                 type="submit"
                 disabled={isSubmitting}
