@@ -18,16 +18,16 @@ const MainContent = ({ showDashboard, setShowDashboard }: MainContentProps) => (
     <AnnouncementsCarouselPanel />
     <div className="container mx-auto px-2 py-8 lg:py-10">
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
-        {showDashboard ? (
-          <CustomerDashboardPanel setShowDashboard={setShowDashboard} />
-        ) : (
-          <SupportFormPanel showDashboard={showDashboard} setShowDashboard={setShowDashboard} />
-        )}
         <div className="space-y-6 flex flex-col">
           <ContactOptionsPanel />
           <KnowledgeBasePanel />
           <PersonalizedHelpPanel />
         </div>
+        {showDashboard ? (
+          <CustomerDashboardPanel setShowDashboard={setShowDashboard} />
+        ) : (
+          <SupportFormPanel showDashboard={showDashboard} setShowDashboard={setShowDashboard} />
+        )}
       </div>
     </div>
     <ContactSection />
