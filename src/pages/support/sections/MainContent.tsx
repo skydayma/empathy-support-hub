@@ -28,22 +28,24 @@ const MainContent = ({ showDashboard, setShowDashboard }: MainContentProps) => (
             <img 
               src="/lovable-uploads/042aea83-c906-41e9-8a8d-ad07b01560d6.png"
               alt="Customer Service Representative"
-              className="w-full rounded-2xl shadow-lg"
+              className="w-full rounded-2xl shadow-lg mb-6"
             />
-            <ContactOptionsPanel />
+            <KnowledgeBasePanel />
           </div>
         </motion.div>
-        {showDashboard ? (
-          <CustomerDashboardPanel setShowDashboard={setShowDashboard} />
-        ) : (
-          <SupportFormPanel showDashboard={showDashboard} setShowDashboard={setShowDashboard} />
-        )}
-      </div>
-      <div className="mt-8">
-        <KnowledgeBasePanel />
+        <div className="space-y-6">
+          {showDashboard ? (
+            <CustomerDashboardPanel setShowDashboard={setShowDashboard} />
+          ) : (
+            <>
+              <SupportFormPanel showDashboard={showDashboard} setShowDashboard={setShowDashboard} />
+              <ContactOptionsPanel />
+            </>
+          )}
+        </div>
       </div>
       <div className="block lg:hidden mt-6">
-        <ContactOptionsPanel />
+        <KnowledgeBasePanel />
       </div>
     </div>
     <ContactSection />
