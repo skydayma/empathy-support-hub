@@ -16,9 +16,9 @@ interface MainContentProps {
 const MainContent = ({ showDashboard, setShowDashboard }: MainContentProps) => (
   <>
     <AnnouncementsCarouselPanel />
-    <div className="container mx-auto px-2 py-8 lg:py-10">
-      <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
-        <div className="space-y-6 flex flex-col">
+    <div className="container mx-auto px-4 py-6 lg:py-8">
+      <div className="grid grid-cols-1 lg:grid-cols-2 gap-4 lg:gap-6">
+        <div className="space-y-4 flex flex-col">
           <ContactOptionsPanel />
           <KnowledgeBasePanel />
           <PersonalizedHelpPanel />
