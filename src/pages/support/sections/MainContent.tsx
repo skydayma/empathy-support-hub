@@ -4,9 +4,9 @@ import SupportFormPanel from "../SupportFormPanel";
 import ContactOptionsPanel from "../ContactOptionsPanel";
 import CustomerDashboardPanel from "../CustomerDashboardPanel";
 import KnowledgeBasePanel from "../KnowledgeBasePanel";
-import PersonalizedHelpPanel from "../PersonalizedHelpPanel";
 import ContactSection from "../ContactSection";
 import FooterLinks from "../FooterLinks";
+import { motion } from "framer-motion";
 
 interface MainContentProps {
   showDashboard: boolean;
@@ -16,18 +16,34 @@ interface MainContentProps {
 const MainContent = ({ showDashboard, setShowDashboard }: MainContentProps) => (
   <>
     <AnnouncementsCarouselPanel />
-    <div className="container mx-auto px-4 py-6 lg:py-8">
-      <div className="grid grid-cols-1 lg:grid-cols-2 gap-4 lg:gap-6">
-        <div className="space-y-4 flex flex-col">
-          <ContactOptionsPanel />
-          <KnowledgeBasePanel />
-          <PersonalizedHelpPanel />
-        </div>
+    <div className="container mx-auto px-4 py-6">
+      <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 mb-6">
+        <motion.div
+          initial={{ opacity: 0, x: -20 }}
+          animate={{ opacity: 1, x: 0 }}
+          transition={{ duration: 0.5 }}
+          className="relative hidden lg:block"
+        >
+          <div className="sticky top-24">
+            <img 
+              src="/lovable-uploads/042aea83-c906-41e9-8a8d-ad07b01560d6.png"
+              alt="Customer Service Representative"
+              className="w-full rounded-2xl shadow-lg"
+            />
+            <ContactOptionsPanel />
+          </div>
+        </motion.div>
         {showDashboard ? (
           <CustomerDashboardPanel setShowDashboard={setShowDashboard} />
         ) : (
           <SupportFormPanel showDashboard={showDashboard} setShowDashboard={setShowDashboard} />
         )}
+      </div>
+      <div className="mt-8">
+        <KnowledgeBasePanel />
+      </div>
+      <div className="block lg:hidden mt-6">
+        <ContactOptionsPanel />
       </div>
     </div>
     <ContactSection />
