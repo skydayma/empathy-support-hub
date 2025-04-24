@@ -1,7 +1,6 @@
 
 import AnnouncementsCarouselPanel from "../AnnouncementsCarouselPanel";
 import SupportFormPanel from "../SupportFormPanel";
-import ContactOptionsPanel from "../ContactOptionsPanel";
 import CustomerDashboardPanel from "../CustomerDashboardPanel";
 import KnowledgeBasePanel from "../KnowledgeBasePanel";
 import ContactSection from "../ContactSection";
@@ -33,14 +32,11 @@ const MainContent = ({ showDashboard, setShowDashboard }: MainContentProps) => (
             <KnowledgeBasePanel />
           </div>
         </motion.div>
-        <div className="space-y-6">
+        <div>
           {showDashboard ? (
             <CustomerDashboardPanel setShowDashboard={setShowDashboard} />
           ) : (
-            <>
-              <SupportFormPanel showDashboard={showDashboard} setShowDashboard={setShowDashboard} />
-              <ContactOptionsPanel />
-            </>
+            <SupportFormPanel showDashboard={showDashboard} setShowDashboard={setShowDashboard} />
           )}
         </div>
       </div>

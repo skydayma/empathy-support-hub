@@ -1,11 +1,10 @@
-
 import { AnimatePresence, motion } from "framer-motion";
 import { useForm } from "react-hook-form";
 import { z } from "zod";
 import { zodResolver } from "@hookform/resolvers/zod";
 import FormField from "@/components/FormField";
 import MotionButton from "@/components/MotionButton";
-import { FileUp, CheckCircle } from "lucide-react";
+import { FileUp, CheckCircle, MessageSquare, Mail, HelpCircle } from "lucide-react";
 import { useToast } from "@/hooks/use-toast";
 import { useState } from "react";
 
@@ -19,18 +18,26 @@ const formSchema = z.object({
 
 type FormValues = z.infer<typeof formSchema>;
 
-const containerVariants = {
-  hidden: { opacity: 0 },
-  visible: {
-    opacity: 1,
-    transition: { staggerChildren: 0.1 },
+const contactOptions = [
+  {
+    title: "Live Chat",
+    description: "Talk to our team in real-time",
+    icon: <MessageSquare className="h-6 w-6 text-primary" />,
+    action: "Start Chat"
+  },
+  {
+    title: "Email Support",
+    description: "Send us a detailed message",
+    icon: <Mail className="h-6 w-6 text-secondary" />,
+    action: "Email Us"
+  },
+  {
+    title: "FAQs",
+    description: "Find quick answers to common questions",
+    icon: <HelpCircle className="h-6 w-6 text-primary" />,
+    action: "View FAQs"
   }
-};
-
-const itemVariants = {
-  hidden: { opacity: 0, y: 20 },
-  visible: { opacity: 1, y: 0, transition: { duration: 0.4 } }
-};
+];
 
 const SupportFormPanel = ({
   showDashboard,
@@ -94,11 +101,17 @@ const SupportFormPanel = ({
             key="form"
             onSubmit={handleSubmit(onSubmit)}
             className="space-y-5 flex-grow flex flex-col"
-            variants={containerVariants}
+            variants={{
+              hidden: { opacity: 0 },
+              visible: { opacity: 1, transition: { staggerChildren: 0.1 } }
+            }}
             initial="hidden"
             animate="visible"
           >
-            <motion.div variants={itemVariants} className="grid grid-cols-1 md:grid-cols-2 gap-5">
+            <motion.div variants={{
+              hidden: { opacity: 0, y: 20 },
+              visible: { opacity: 1, y: 0, transition: { duration: 0.4 } }
+            }} className="grid grid-cols-1 md:grid-cols-2 gap-5">
               <FormField
                 id="name"
                 label="Name"
@@ -116,7 +129,10 @@ const SupportFormPanel = ({
                 error={errors.email?.message}
               />
             </motion.div>
-            <motion.div variants={itemVariants} className="grid grid-cols-1 md:grid-cols-2 gap-5">
+            <motion.div variants={{
+              hidden: { opacity: 0, y: 20 },
+              visible: { opacity: 1, y: 0, transition: { duration: 0.4 } }
+            }} className="grid grid-cols-1 md:grid-cols-2 gap-5">
               <FormField
                 id="category"
                 label="Issue Category"
@@ -145,7 +161,10 @@ const SupportFormPanel = ({
                 <option value="critical">Critical</option>
               </FormField>
             </motion.div>
-            <motion.div variants={itemVariants}>
+            <motion.div variants={{
+              hidden: { opacity: 0, y: 20 },
+              visible: { opacity: 1, y: 0, transition: { duration: 0.4 } }
+            }}>
               <FormField
                 id="message"
                 label="Message"
@@ -155,7 +174,10 @@ const SupportFormPanel = ({
                 error={errors.message?.message}
               />
             </motion.div>
-            <motion.div variants={itemVariants}>
+            <motion.div variants={{
+              hidden: { opacity: 0, y: 20 },
+              visible: { opacity: 1, y: 0, transition: { duration: 0.4 } }
+            }}>
               <div className="flex items-center justify-between p-4 border border-dashed border-gray-300 dark:border-gray-600 rounded-lg">
                 <div className="flex items-center gap-2">
                   <FileUp className="h-5 w-5 text-primary" />
@@ -166,7 +188,10 @@ const SupportFormPanel = ({
                 </button>
               </div>
             </motion.div>
-            <motion.div variants={itemVariants} className="mt-auto pt-4">
+            <motion.div variants={{
+              hidden: { opacity: 0, y: 20 },
+              visible: { opacity: 1, y: 0, transition: { duration: 0.4 } }
+            }} className="mt-auto pt-4">
               <MotionButton
                 type="submit"
                 disabled={isSubmitting}
@@ -177,6 +202,42 @@ const SupportFormPanel = ({
               >
                 Submit Support Request
               </MotionButton>
+            </motion.div>
+            
+            <motion.div className="mt-8 border-t pt-6 border-gray-200 dark:border-gray-700">
+              <h3 className="text-lg font-semibold mb-4 text-primary dark:text-white">Quick Contact Options</h3>
+              <div className="grid grid-cols-1 gap-3">
+                {contactOptions.map((option, index) => (
+                  <motion.div
+                    key={option.title}
+                    className="bg-gradient-to-br from-white via-blue-50/50 to-green-50/50 dark:from-gray-800 dark:via-gray-800 dark:to-gray-700 p-4 rounded-lg shadow-sm border hover:shadow-md transition-all group border-gray-100 dark:border-gray-700 hover:border-primary/40 dark:hover:border-secondary/40 cursor-pointer"
+                    whileHover={{
+                      y: -2,
+                      scale: 1.01,
+                      transition: { duration: 0.2 }
+                    }}
+                    initial={{ opacity: 0, y: 20 }}
+                    animate={{
+                      opacity: 1,
+                      y: 0,
+                      transition: { delay: 0.1 + index * 0.1, duration: 0.3 }
+                    }}
+                  >
+                    <div className="flex items-center gap-4">
+                      <div className="p-2 rounded-full bg-primary/10 ring-1 ring-secondary/30">
+                        {option.icon}
+                      </div>
+                      <div>
+                        <h3 className="font-semibold text-primary dark:text-white">{option.title}</h3>
+                        <p className="text-sm text-muted-foreground dark:text-gray-400">{option.description}</p>
+                      </div>
+                      <button className="ml-auto text-secondary hover:text-primary transition text-sm font-medium">
+                        {option.action}
+                      </button>
+                    </div>
+                  </motion.div>
+                ))}
+              </div>
             </motion.div>
           </motion.form>
         )}
