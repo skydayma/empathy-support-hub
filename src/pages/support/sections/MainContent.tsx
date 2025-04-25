@@ -18,21 +18,35 @@ const MainContent = ({ showDashboard, setShowDashboard }: MainContentProps) => (
     <section 
       className="relative py-12 overflow-hidden"
       style={{
-        background: "linear-gradient(135deg, #fdfcfb 0%, #f6f3ff 100%)",
+        background: "linear-gradient(135deg, #fdfcfb 0%, #e5deff 100%)",
+        boxShadow: "inset 0 0 100px rgba(147,39,143,0.1)"
       }}
     >
+      {/* Primary gradient overlay */}
       <div 
-        className="absolute inset-0 opacity-30"
+        className="absolute inset-0 opacity-40"
         style={{
-          backgroundImage: "linear-gradient(90deg, rgba(246,219,245,0.4) 0%, rgba(234,172,232,0.4) 50%, rgba(147,39,143,0.2) 100%)",
+          backgroundImage: "linear-gradient(90deg, rgba(246,219,245,0.6) 0%, rgba(234,172,232,0.4) 50%, rgba(147,39,143,0.2) 100%)",
         }}
       />
+      
+      {/* Radial glow effects */}
       <div 
         className="absolute inset-0"
         style={{
-          backgroundImage: "radial-gradient(circle at 30% 50%, rgba(255,255,255,0.8) 0%, rgba(255,255,255,0) 50%)",
+          backgroundImage: "radial-gradient(circle at 20% 50%, rgba(255,255,255,0.9) 0%, rgba(255,255,255,0) 50%), radial-gradient(circle at 80% 50%, rgba(255,255,255,0.9) 0%, rgba(255,255,255,0) 50%)",
         }}
       />
+      
+      {/* Soft mesh gradient */}
+      <div 
+        className="absolute inset-0"
+        style={{
+          backgroundImage: "linear-gradient(60deg, rgba(134,239,172,0.05) 0%, rgba(59,130,246,0.05) 100%)",
+          mixBlendMode: "overlay"
+        }}
+      />
+
       <div className="container mx-auto px-4 relative z-10">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 mb-6">
           <motion.div
@@ -58,9 +72,11 @@ const MainContent = ({ showDashboard, setShowDashboard }: MainContentProps) => (
         </div>
       </div>
       
-      {/* Decorative elements */}
-      <div className="absolute top-0 right-0 w-1/3 h-64 bg-gradient-to-bl from-secondary/10 to-transparent rounded-bl-full transform rotate-180" />
-      <div className="absolute bottom-0 left-0 w-1/4 h-48 bg-gradient-to-tr from-primary/10 to-transparent rounded-tr-full" />
+      {/* Enhanced decorative elements */}
+      <div className="absolute top-0 right-0 w-1/3 h-72 bg-gradient-to-bl from-secondary/20 to-transparent rounded-bl-full transform rotate-180 blur-lg" />
+      <div className="absolute top-20 right-40 w-24 h-24 bg-gradient-to-bl from-primary/10 to-transparent rounded-full animate-pulse-slow" />
+      <div className="absolute bottom-0 left-0 w-1/4 h-56 bg-gradient-to-tr from-primary/20 to-transparent rounded-tr-full blur-lg" />
+      <div className="absolute bottom-20 left-32 w-16 h-16 bg-gradient-to-tr from-secondary/10 to-transparent rounded-full animate-float" />
     </section>
     
     <ContactSection />
