@@ -81,11 +81,11 @@ const HeroSection = ({
         animate={{ opacity: 1, scale: 1 }}
         transition={{ duration: 0.8, delay: 0.2 }}
       >
-        <div className="relative">
+        <div className="relative w-full max-w-lg mx-auto">
           <img
             src="/lovable-uploads/042aea83-c906-41e9-8a8d-ad07b01560d6.png"
             alt="Customer Service Representative"
-            className="h-64 w-full max-w-lg object-cover rounded-2xl shadow-2xl border-4 border-white/80 transition-transform hover:scale-[1.02] duration-300"
+            className="w-full h-[80vh] max-h-[600px] object-cover rounded-2xl shadow-2xl border-4 border-white/80 transition-transform hover:scale-[1.02] duration-300"
           />
           <div className="absolute inset-0 rounded-2xl bg-gradient-to-tr from-primary/10 to-transparent pointer-events-none" />
         </div>
@@ -102,3 +102,4 @@ const HeroSection = ({
 );
 
 export default HeroSection;
+
