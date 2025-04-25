@@ -120,12 +120,24 @@ const Index = () => {
     <Layout>
       <EventPopup />
       <section className="relative bg-gradient-to-br from-blue-50 via-white to-indigo-100 overflow-hidden">
+        <div className="absolute inset-0 overflow-hidden">
+          <div className="absolute -left-4 top-1/4 w-64 h-64 bg-gradient-to-r from-primary/10 to-secondary/10 rounded-full blur-3xl animate-pulse-slow" />
+          <div className="absolute right-0 top-1/2 w-96 h-96 bg-gradient-to-l from-secondary/20 to-primary/10 rounded-full blur-3xl animate-float" />
+          <div className="absolute left-1/3 bottom-0 w-72 h-72 bg-gradient-to-t from-accent/20 to-transparent rounded-full blur-3xl" />
+        </div>
+
         <div className="absolute left-1/2 -translate-x-1/2 top-8">
-          <span className="bg-gradient-to-r from-primary to-secondary text-white px-6 py-2.5 rounded-full shadow-lg font-semibold text-sm tracking-wider animate-pulse-slow inline-flex items-center gap-2">
+          <motion.span 
+            initial={{ opacity: 0, y: -20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6, delay: 0.2 }}
+            className="bg-gradient-to-r from-primary to-secondary text-white px-6 py-2.5 rounded-full shadow-lg font-semibold text-sm tracking-wider inline-flex items-center gap-2 backdrop-blur-sm border border-white/20"
+          >
             <span className="inline-block animate-bounce">🎉</span>
             Meet the new NexusSupport!
-          </span>
+          </motion.span>
         </div>
+
         <div className="container mx-auto px-4 py-24 md:py-32 flex flex-col md:flex-row items-center">
           <motion.div 
             className="md:w-1/2 mb-10 md:mb-0 md:pr-10 space-y-6"
@@ -134,21 +146,26 @@ const Index = () => {
             transition={{ duration: 0.6 }}
           >
             <motion.h1 
-              className="text-5xl md:text-6xl lg:text-7xl font-extrabold leading-tight mb-6 bg-gradient-to-r from-primary via-primary/90 to-secondary bg-clip-text text-transparent drop-shadow-sm"
+              className="text-5xl md:text-6xl lg:text-7xl font-extrabold leading-tight mb-6"
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               transition={{ delay: 0.2, duration: 0.7 }}
             >
-              Welcome to <br/><span className="text-gradient">NexusSupport</span>
+              Building Trust,{" "}
+              <span className="bg-gradient-to-r from-primary via-primary/90 to-secondary bg-clip-text text-transparent drop-shadow-sm">
+                One Solution at a Time
+              </span>
             </motion.h1>
+            
             <motion.p 
               className="text-2xl md:text-3xl text-muted-foreground/90 font-light"
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               transition={{ delay: 0.4, duration: 0.7 }}
             >
-              Building Trust, One Solution at a Time.
+              Your success is our commitment. Experience support that truly cares.
             </motion.p>
+
             <motion.div
               initial={{ opacity: 0, scale: 0.9 }}
               animate={{ opacity: 1, scale: 1 }}
@@ -157,12 +174,19 @@ const Index = () => {
             >
               <Link 
                 to="/support" 
-                className="group inline-flex items-center bg-primary hover:bg-primary/90 text-white px-8 py-4 rounded-lg shadow-lg hover:shadow-xl transition-all duration-300 text-lg font-semibold hover:translate-y-[-2px]"
-                role="button"
-                aria-label="Contact Support"
+                className="group inline-flex items-center bg-gradient-to-r from-primary to-secondary hover:from-primary/90 hover:to-secondary/90 text-white px-8 py-4 rounded-lg shadow-lg hover:shadow-xl transition-all duration-300 text-lg font-semibold hover:translate-y-[-2px] relative overflow-hidden"
               >
-                Contact Support
-                <ArrowRight className="ml-2 h-6 w-6 group-hover:translate-x-2 transition-transform duration-300" />
+                <span className="relative z-10 flex items-center">
+                  Contact Support
+                  <motion.span 
+                    className="ml-2"
+                    animate={{ x: [0, 4, 0] }}
+                    transition={{ duration: 1.5, repeat: Infinity }}
+                  >
+                    <ArrowRight className="h-6 w-6" />
+                  </motion.span>
+                </span>
+                <div className="absolute inset-0 bg-white/20 transform translate-y-full transition-transform duration-300 group-hover:translate-y-0" />
               </Link>
             </motion.div>
           </motion.div>
@@ -174,12 +198,13 @@ const Index = () => {
             transition={{ duration: 0.7, delay: 0.3 }}
           >
             <div className="relative group">
-              <div className="absolute -inset-1 rounded-xl bg-gradient-to-r from-primary via-accent to-secondary blur-xl opacity-30 animate-pulse-slow group-hover:opacity-40 transition-opacity"></div>
+              <div className="absolute -inset-1 rounded-xl bg-gradient-to-r from-primary via-accent to-secondary blur-xl opacity-30 group-hover:opacity-40 transition-opacity animate-pulse-slow"></div>
               <img 
                 src="https://images.unsplash.com/photo-1488590528505-98d2b5aba04b"
                 alt="Modern tech workspace showcasing NexusSupport's advanced customer service platform"
-                className="relative rounded-xl shadow-xl w-full max-w-lg object-cover hover:scale-[1.03] transition-transform duration-700 border-4 border-white"
+                className="relative rounded-xl shadow-xl w-full max-w-lg mx-auto object-cover hover:scale-[1.03] transition-transform duration-700 border-4 border-white/80 aspect-[4/3]"
               />
+              <div className="absolute inset-0 rounded-xl bg-gradient-to-tr from-primary/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
             </div>
           </motion.div>
         </div>
