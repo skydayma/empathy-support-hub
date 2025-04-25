@@ -24,11 +24,6 @@ const MainContent = ({ showDashboard, setShowDashboard }: MainContentProps) => (
           className="relative hidden lg:block"
         >
           <div className="sticky top-24">
-            <img 
-              src="/lovable-uploads/042aea83-c906-41e9-8a8d-ad07b01560d6.png"
-              alt="Customer Service Representative"
-              className="w-full rounded-2xl shadow-lg mb-6"
-            />
             <KnowledgeBasePanel />
           </div>
         </motion.div>

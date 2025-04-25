@@ -1,3 +1,4 @@
+
 import SmartSearch from "@/components/SmartSearch";
 import { motion } from "framer-motion";
 import { CircleHelpIcon, SparklesIcon } from "lucide-react";
@@ -30,8 +31,8 @@ const HeroSection = ({
     </div>
 
     <motion.div
-      initial={{ opacity: 0, y: 20 }}
-      animate={{ opacity: 1, y: 0 }}
+      initial={{ opacity: 0, scale: 0.8 }}
+      animate={{ opacity: 1, scale: 1 }}
       transition={{ duration: 0.8 }}
       className="absolute inset-0 bg-gradient-to-b from-transparent via-white/5 to-white/10 pointer-events-none"
     />
@@ -82,8 +83,8 @@ const HeroSection = ({
       >
         <div className="relative">
           <img
-            src={`https://images.unsplash.com/photo-${isDarkMode ? '1487087182419-5c8fede9b91a' : '1461749280684-dccba630e2f6'}`}
-            alt="Support illustration"
+            src="/lovable-uploads/042aea83-c906-41e9-8a8d-ad07b01560d6.png"
+            alt="Customer Service Representative"
             className="h-64 w-full max-w-lg object-cover rounded-2xl shadow-2xl border-4 border-white/80 transition-transform hover:scale-[1.02] duration-300"
           />
           <div className="absolute inset-0 rounded-2xl bg-gradient-to-tr from-primary/10 to-transparent pointer-events-none" />
