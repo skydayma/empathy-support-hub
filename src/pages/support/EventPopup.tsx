@@ -3,7 +3,7 @@ import React, { useEffect, useState } from "react";
 import { X, Calendar } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
 
-const EVENT_START = new Date("2025-08-30T10:00:00Z"); // Set your event start here!
+const EVENT_START = new Date("2025-05-28T10:00:00Z"); // Set your event start here!
 
 function getTimeRemaining(target: Date) {
   const total = +target - +new Date();
@@ -62,11 +62,11 @@ const EventPopup: React.FC = () => {
             <Calendar className="w-7 h-7 text-primary" />
             <span className="font-bold text-2xl text-gray-800">Upcoming Event</span>
           </div>
-          <h2 className="text-xl font-semibold mb-2 text-primary">NexusConnect 2025: Customer Success Summit</h2>
+          <h2 className="text-xl font-semibold mb-2 text-primary">xTelligent Two</h2>
           <p className="mb-5 text-sm md:text-base text-gray-700">
-            Join us for a day of inspiration and innovation with industry leaders.<br />
-            Discover new trends, network, and unlock the future of customer success.<br />
-            August 30, 2025 • 10:00 AM UTC
+            Get ready for the next evolution of intelligence and<br/> innovation!
+            xTelligent Two is on its way, bringing<br/> groundbreaking ideas, dynamic.
+            experiences,<br/> and limitless possibilities.
           </p>
           <div className="flex justify-center gap-2 mb-6">
             <CountdownBlock value={remaining.days} label="Days" />
@@ -80,7 +80,7 @@ const EventPopup: React.FC = () => {
             rel="noopener noreferrer"
             className="inline-block bg-gradient-to-r from-primary to-secondary text-white font-bold py-2 px-5 rounded-full shadow hover:scale-105 transition-all"
           >
-            Learn More
+            Coming soon
           </a>
         </motion.div>
       </motion.div>

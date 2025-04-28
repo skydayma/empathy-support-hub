@@ -13,7 +13,15 @@ import {
   Twitter,
   Github,
   Linkedin,
-  Youtube
+  Youtube,
+  ShieldCheck,
+  Activity,
+  Cpu,
+  Globe,
+  Cloud,
+  Settings,
+  Calendar,
+  UserCheck
 } from "lucide-react";
 import { Link } from "react-router-dom";
 import Layout from "@/components/Layout";
@@ -22,7 +30,7 @@ import EventPopup from "./support/EventPopup";
 
 const testimonials = [
   {
-    quote: "NexusSupport resolved my issue in under 2 minutes—amazing experience!",
+    quote: "ContinuousIntelligence resolved my issue in under 2 minutes—amazing experience!",
     name: "Jane D.",
     title: "Project Manager"
   },
@@ -66,32 +74,81 @@ const Index = () => {
       idx === 0 ? testimonials.length - 1 : idx - 1
     );
 
-  const products = [
-    {
-      title: "AI-Powered Support",
-      description: "Instant solutions through advanced machine learning",
-      icon: <HelpCircle className="h-10 w-10 text-primary" />,
-      badgeColor: "from-indigo-100 to-indigo-50"
-    },
-    {
-      title: "Knowledge Base",
-      description: "Comprehensive guides and documentation",
-      icon: <BookOpen className="h-10 w-10 text-accent" />,
-      badgeColor: "from-blue-100 to-blue-50"
-    },
-    {
-      title: "Live Chat",
-      description: "Connect with our team in real-time",
-      icon: <MessageSquare className="h-10 w-10 text-secondary" />,
-      badgeColor: "from-green-100 to-green-50"
-    },
-    {
-      title: "Priority Support",
-      description: "Dedicated assistance for enterprise clients",
-      icon: <Mail className="h-10 w-10 text-primary" />,
-      badgeColor: "from-pink-100 to-pink-50"
-    }
-  ];
+    const products = [
+      {
+        title: "Continuous Intelligent Validation(cIV)",
+        description: "cIV simplifies and automates GxP-compliant software validation with cutting-edge AI.",
+        icon: <HelpCircle className="h-10 w-10 text-primary" />,
+        badgeColor: "from-indigo-200 to-indigo-100"  // Updated background color
+      },
+      {
+        title: "Continuous Temperature Mapping (cTM)",
+        description: "cTM monitors and analyzes environmental parameters in real-time - an innovative AI//ML powered app.",
+        icon: <BookOpen className="h-10 w-10 text-primary" />,
+        badgeColor: "from-blue-200 to-blue-100"  // Updated background color
+      },
+      {
+        title: "Continuous Predictive Maintenance (cPdM)",
+        description: "cPdM transforms preventive maintenance with AI/ML driven Predictive Maintenance.",
+        icon: <MessageSquare className="h-10 w-10 text-secondary" />,
+        badgeColor: "from-green-200 to-green-100"  // Updated background color
+      },
+      {
+        title: "Continuous Environmental Monitoring System (cEMS)",
+        description: "Continuous Environmental Monitoring System is an innovative platform i.e. set to transform the way environmental data is captured, analyzed, and utilized.",
+        icon: <Mail className="h-10 w-10 text-primary" />,
+        badgeColor: "from-pink-200 to-pink-100"  // Updated background color
+      },
+      {
+        title: "Continuous Application Lifecycle Management (cALM)",
+        description: "cALM is an innovative platform transforming software validation, qualification, and application lifecycle management for life sciences.",
+        icon: <ShieldCheck className="h-10 w-10 text-primary" />,
+        badgeColor: "from-indigo-300 to-indigo-200"  // Updated background color
+      },
+      {
+        title: "Continuous Document Management (cDM)",
+        description: "Equipped with cutting-edge AI technology, cDM is a premier Document Management solution tailored for life sciences organizations.",
+        icon: <Activity className="h-10 w-10 text-primary" />,
+        badgeColor: "from-yellow-200 to-yellow-100"  // Updated background color
+      },
+      {
+        title: "Continuous Service Management (cSM)",
+        description: "cSM is a modern platform revolutionizing how organizations manage processes, boost efficiency, and ensure compliance, especially in highly regulated GxP settings.",
+        icon: <Cpu className="h-10 w-10 text-primary" />,
+        badgeColor: "from-red-200 to-red-100"  // Updated background color
+      },
+      {
+        title: "Continuous Risk Management (cRM)",
+        description: "cRM is an innovative platform reshaping how organizations manage project, process, IT and operations risks.",
+        icon: <Globe className="h-10 w-10 text-primary" />,
+        badgeColor: "from-teal-200 to-teal-100"  // Updated background color
+      },
+      {
+        title: "Continuous Remote Monitoring and Management (cRMM)",
+        description: "cRMM is a sophisticated platform designed for the seamless management of both GxP and non-GxP IT assets.",
+        icon: <Cloud className="h-10 w-10 text-primary" />,
+        badgeColor: "from-cyan-200 to-cyan-100"  // Updated background color
+      },
+      {
+        title: "Continuous IT/OT Operations and Management (cITOM)",
+        description: "Continuous IT/OT Operations Management (cITOM) is a cutting-edge incident management platform built to improve operational resilience and incident response specifically within modern manufacturing.",
+        icon: <Settings className="h-10 w-10 text-primary" />,
+        badgeColor: "from-purple-200 to-purple-100"  // Updated background color
+      },
+      {
+        title: "Continuous Mail Protection (cMP)",
+        description: "ContinuousMP (cMP) is a revolutionary managed service that transforms email security and data protection.",
+        icon: <Calendar className="h-10 w-10 text-primary" />,
+        badgeColor: "from-orange-200 to-orange-100"  // Updated background color
+      },
+      {
+        title: "Continuous Managed Threat Response (cMTR)",
+        description: "cMTR is a revolutionary cybersecurity platform built to defend the manufacturing networks against today's rapidly changing cyber threats.",
+        icon: <UserCheck className="h-10 w-10 text-primary" />,
+        badgeColor: "from-lime-200 to-lime-100"  // Updated background color
+      }
+    ];
+    
 
   const stats = [
     {
@@ -151,9 +208,9 @@ const Index = () => {
               animate={{ opacity: 1 }}
               transition={{ delay: 0.2, duration: 0.7 }}
             >
-              Building Trust,{" "}
+              Here to Help,{" "}
               <span className="bg-gradient-to-r from-primary via-primary/90 to-secondary bg-clip-text text-transparent drop-shadow-sm">
-                One Solution at a Time
+                Exceptional Support, Every Step of the Way.
               </span>
             </motion.h1>
             
@@ -163,7 +220,7 @@ const Index = () => {
               animate={{ opacity: 1 }}
               transition={{ delay: 0.4, duration: 0.7 }}
             >
-              Your success is our commitment. Experience support that truly cares.
+              Reach out to our dedicated team anytime, we're ready to assist you.
             </motion.p>
 
             <motion.div
@@ -257,10 +314,10 @@ const Index = () => {
               <motion.div
                 key={index}
                 variants={itemVariants}
-                className={`rounded-xl p-8 shadow-lg hover:shadow-xl transition-all duration-500 border border-muted hover:border-primary/20 group bg-gradient-to-br ${product.badgeColor} hover:scale-105`}
+                className={`rounded-xl p-8 shadow-lg hover:shadow-xl transition-all duration-500 border border-muted hover:border-primary/20 group bg-gradient-to-br ${product.badgeColor} hover:scale-105 flex flex-col justify-between`}
                 whileHover={{ y: -4 }}
               >
-                <div className="flex flex-col items-center text-center space-y-4">
+                <div className="flex flex-col items-center text-center space-y-4 grow">
                   <motion.div 
                     className="mb-4 p-4 bg-white/80 rounded-full shadow-md group-hover:shadow-lg transition-all duration-300"
                     whileHover={{ 
@@ -273,9 +330,10 @@ const Index = () => {
                   <h3 className="text-2xl font-semibold mb-2 text-primary group-hover:text-primary/80 transition-colors">
                     {product.title}
                   </h3>
-                  <p className="text-muted-foreground text-lg mb-6">
+                  <p className="text-muted-foreground text-lg mb-6 line-clamp-3">
                     {product.description}
                   </p>
+                  <div className="mt-auto flex justify-bottom">
                   <Link 
                     to="/support" 
                     className="text-primary hover:text-primary/80 inline-flex items-center font-medium text-lg group/link"
@@ -284,6 +342,8 @@ const Index = () => {
                     Learn More 
                     <ArrowRight className="ml-2 h-5 w-5 group-hover/link:translate-x-2 transition-transform duration-300" />
                   </Link>
+                  </div>
+                  
                 </div>
               </motion.div>
             ))}
@@ -349,7 +409,7 @@ const Index = () => {
             <div className="space-y-4">
               <h3 className="text-lg font-semibold text-primary">About Us</h3>
               <p className="text-muted-foreground">
-                NexusSupport helps businesses deliver exceptional customer support with AI-powered solutions.
+                ContinuousIntelligence helps businesses deliver exceptional customer support with AI-powered solutions.
               </p>
               <div className="flex space-x-4">
                 <a href="#" className="text-muted-foreground hover:text-primary transition-colors">
@@ -400,7 +460,7 @@ const Index = () => {
 
           <div className="mt-12 pt-8 border-t border-gray-200">
             <p className="text-center text-muted-foreground">
-              © {new Date().getFullYear()} NexusSupport. All rights reserved.
+              © {new Date().getFullYear()} ContinuousIntelligence. All rights reserved.
             </p>
           </div>
         </div>

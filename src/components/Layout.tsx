@@ -18,9 +18,13 @@ const Layout = ({ children }: { children: React.ReactNode }) => {
               transition={{ duration: 0.3 }}
               className="flex items-center gap-2"
             >
-              <HeadphonesIcon className="h-8 w-8 text-primary" />
+              <img 
+                src="\Profile Pics\XLM.png"
+                alt="logo"
+                className="h-8 w-8" 
+              />
               <Link to="/" className="text-xl font-bold text-foreground">
-                NexusSupport
+                Continuous Intelligence 
               </Link>
             </motion.div>
             <nav>
@@ -61,11 +65,6 @@ const Layout = ({ children }: { children: React.ReactNode }) => {
           {children}
         </PageTransition>
       </main>
-      <footer className="bg-muted py-6">
-        <div className="container mx-auto px-4 text-center text-muted-foreground">
-          <p>© 2025 NexusSupport. All rights reserved.</p>
-        </div>
-      </footer>
     </div>
   );
 };

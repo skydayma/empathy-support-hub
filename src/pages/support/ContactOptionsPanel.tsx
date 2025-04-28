@@ -12,7 +12,7 @@ const contactOptions = [
   {
     title: "Email Support",
     description: "Send us a detailed message",
-    icon: <Mail className="h-6 w-6 text-secondary" />,
+    icon: <Mail className="h-6 w-6" style={{ color: '#3b82f6'}} />,
     action: "Email Us"
   },
   {
