@@ -191,7 +191,7 @@ const Index = () => {
             className="bg-gradient-to-r from-primary to-secondary text-white px-6 py-2.5 rounded-full shadow-lg font-semibold text-sm tracking-wider inline-flex items-center gap-2 backdrop-blur-sm border border-white/20"
           >
             <span className="inline-block animate-bounce">🎉</span>
-            Meet the new NexusSupport!
+            Meet the new ContinuousIntelligence!
           </motion.span>
         </div>
 
@@ -289,67 +289,75 @@ const Index = () => {
       </section>
 
       <section className="py-20 bg-white">
-        <div className="container mx-auto px-4">
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true, margin: "-100px" }}
-            transition={{ duration: 0.5 }}
-            className="text-center mb-16"
-          >
-            <h2 className="text-4xl md:text-5xl font-bold mb-6 text-primary">Our Support Solutions</h2>
-            <p className="text-xl text-muted-foreground max-w-2xl mx-auto font-light">
-              Discover the tools and services designed to provide you with the smoothest support experience.
+  <div className="container mx-auto px-4">
+    <motion.div
+      initial={{ opacity: 0, y: 20 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      viewport={{ once: true, margin: "-100px" }}
+      transition={{ duration: 0.5 }}
+      className="text-center mb-16"
+    >
+      <h2 className="text-4xl md:text-5xl font-bold mb-6 text-primary">
+        Our Support Solutions
+      </h2>
+      <p className="text-xl text-muted-foreground max-w-2xl mx-auto font-light">
+        Discover the tools and services designed to provide you with the smoothest support experience.
+      </p>
+    </motion.div>
+
+    <motion.div 
+      className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8"
+      variants={containerVariants}
+      initial="hidden"
+      whileInView="visible"
+      viewport={{ once: true, margin: "-100px" }}
+    >
+      {products.map((product, index) => (
+        <motion.div
+          key={index}
+          variants={itemVariants}
+          className={`h-full flex flex-col rounded-xl p-8 shadow-lg hover:shadow-xl transition-all duration-500 border border-muted hover:border-primary/20 group bg-gradient-to-br ${product.badgeColor} hover:scale-105`}
+          whileHover={{ y: -4 }}
+        >
+          {/* Content Section */}
+          <div className="flex flex-col items-center text-center space-y-4 flex-grow">
+            <motion.div 
+              className="mb-4 p-4 bg-white/80 rounded-full shadow-md group-hover:shadow-lg transition-all duration-300"
+              whileHover={{ 
+                scale: 1.1,
+                rotate: 5
+              }}
+            >
+              {product.icon}
+            </motion.div>
+
+            <h3 className="text-2xl font-semibold mb-2 text-primary group-hover:text-primary/80 transition-colors">
+              {product.title}
+            </h3>
+
+            <p className="text-muted-foreground text-lg mb-6 line-clamp-4">
+              {product.description}
             </p>
-          </motion.div>
-          
-          <motion.div 
-            className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8"
-            variants={containerVariants}
-            initial="hidden"
-            whileInView="visible"
-            viewport={{ once: true, margin: "-100px" }}
-          >
-            {products.map((product, index) => (
-              <motion.div
-                key={index}
-                variants={itemVariants}
-                className={`rounded-xl p-8 shadow-lg hover:shadow-xl transition-all duration-500 border border-muted hover:border-primary/20 group bg-gradient-to-br ${product.badgeColor} hover:scale-105 flex flex-col justify-between`}
-                whileHover={{ y: -4 }}
-              >
-                <div className="flex flex-col items-center text-center space-y-4 grow">
-                  <motion.div 
-                    className="mb-4 p-4 bg-white/80 rounded-full shadow-md group-hover:shadow-lg transition-all duration-300"
-                    whileHover={{ 
-                      scale: 1.1,
-                      rotate: 5
-                    }}
-                  >
-                    {product.icon}
-                  </motion.div>
-                  <h3 className="text-2xl font-semibold mb-2 text-primary group-hover:text-primary/80 transition-colors">
-                    {product.title}
-                  </h3>
-                  <p className="text-muted-foreground text-lg mb-6 line-clamp-3">
-                    {product.description}
-                  </p>
-                  <div className="mt-auto flex justify-bottom">
-                  <Link 
-                    to="/support" 
-                    className="text-primary hover:text-primary/80 inline-flex items-center font-medium text-lg group/link"
-                    aria-label={`Learn more about ${product.title}`}
-                  >
-                    Learn More 
-                    <ArrowRight className="ml-2 h-5 w-5 group-hover/link:translate-x-2 transition-transform duration-300" />
-                  </Link>
-                  </div>
-                  
-                </div>
-              </motion.div>
-            ))}
-          </motion.div>
-        </div>
-      </section>
+          </div>
+
+          {/* Button Section */}
+          <div className="mt-auto pt-4">
+            <Link 
+              to="/support" 
+              className="text-primary hover:text-primary/80 inline-flex items-center font-medium text-lg group/link"
+              aria-label={`Learn more about ${product.title}`}
+            >
+              Learn More 
+              <ArrowRight className="ml-2 h-5 w-5 group-hover/link:translate-x-2 transition-transform duration-300" />
+            </Link>
+          </div>
+
+        </motion.div>
+      ))}
+    </motion.div>
+  </div>
+</section>
+
 
       <section className="bg-gradient-to-r from-white via-blue-50 to-purple-50 py-16 md:py-24">
         <div className="container mx-auto px-4 max-w-3xl">

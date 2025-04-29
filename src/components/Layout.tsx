@@ -19,9 +19,9 @@ const Layout = ({ children }: { children: React.ReactNode }) => {
               className="flex items-center gap-2"
             >
               <img 
-                src="\Profile Pics\XLM.png"
+                src="https://th.bing.com/th/id/R.9f0e77e0c060d197f2fccb37a2bc7b8a?rik=A8fLwKXzVkJxnA&riu=http%3a%2f%2fapi.intellect.com%2fwp-content%2fuploads%2f2023%2f04%2fxLM-Logo-png-1-1-e1681946370250.png&ehk=2pWWRQ%2fLrWvWk%2fc19%2b86%2b3ayM1qJS4mqopBBvZv9ZI4%3d&risl=&pid=ImgRaw&r=0"
                 alt="logo"
-                className="h-8 w-8" 
+                className="h-12 w-20" 
               />
               <Link to="/" className="text-xl font-bold text-foreground">
                 Continuous Intelligence 

@@ -49,9 +49,9 @@ const HeroSection = ({
           <span className="text-primary/80 font-medium">24/7 Customer Support</span>
         </div>
         
-        <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6 text-slate-800 text-black leading-tight">
+        <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6 text-black leading-tight">
           We're Here to{" "}
-          <span className="bg-gradient-to-r from-[#8A0000] to-[#8A0000] bg-clip-text text-transparent">
+          <span className="bg-gradient-to-r text-black bg-clip-text ">
             Help You
           </span>
         </h1>

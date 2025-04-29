@@ -16,7 +16,7 @@ const FooterLinks = () => (
         <div className="space-y-4">
           <h3 className="text-lg font-semibold text-primary">About Us</h3>
           <p className="text-muted-foreground">
-            NexusSupport helps businesses deliver exceptional customer support with AI-powered solutions.
+            ContinuousIntelligence helps businesses deliver exceptional customer support with AI-powered solutions.
           </p>
           <div className="flex space-x-4">
             <a href="#" className="text-muted-foreground hover:text-primary transition-colors">
@@ -67,7 +67,7 @@ const FooterLinks = () => (
 
       <div className="mt-12 pt-8 border-t border-gray-200">
         <p className="text-center text-muted-foreground">
-          © {new Date().getFullYear()} NexusSupport. All rights reserved.
+          © {new Date().getFullYear()} ContinuousIntelligence. All rights reserved.
         </p>
       </div>
     </div>

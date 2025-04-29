@@ -22,7 +22,7 @@ const ContactSection = () => (
                   <Phone className="h-5 w-5 text-primary dark:text-blue-400" />
                 </div>
                 <div>
-                  <p className="text-sm font-medium dark:text-gray-200">+1 (800) 123-4567</p>
+                  <p className="text-sm font-medium dark:text-gray-200">+1 302-319-4827</p>
                   <p className="text-xs text-muted-foreground dark:text-gray-400">Toll-free support line</p>
                 </div>
               </div>
@@ -31,7 +31,7 @@ const ContactSection = () => (
                   <Mail className="h-5 w-5 text-primary dark:text-blue-400" />
                 </div>
                 <div>
-                  <p className="text-sm font-medium dark:text-gray-200">support@nexussupport.com</p>
+                  <p className="text-sm font-medium dark:text-gray-200">info@continuousintelligence.ai</p>
                   <p className="text-xs text-muted-foreground dark:text-gray-400">24/7 email support</p>
                 </div>
               </div>
@@ -82,8 +82,9 @@ const ContactSection = () => (
               </div>
             </div>
             <p className="text-sm dark:text-gray-300">
-              123 Innovation Drive<br />
-              Tech Valley, CA 94103<br />
+              1055 Westlakes Drive,<br />
+              Suite 300,<br />
+              Berwyn, PA 19312,<br/>
               United States
             </p>
           </CardContent>
